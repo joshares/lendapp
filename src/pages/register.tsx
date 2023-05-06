@@ -11,11 +11,11 @@ export default function RegisterPage() {
 
    const handleClick = async(e:React.MouseEvent<HTMLButtonElement>) =>{
     e.preventDefault()
-    signIn('github',{callbackUrl: "http://localhost:3000/users" })
+    signIn('github',{callbackUrl: `${process.env.NEXTAUTH_URL}/users` })
   }
   const handleGoggle = async(e:React.MouseEvent<HTMLButtonElement>) =>{
     e.preventDefault()
-    signIn('google',{callbackUrl: "http://localhost:3000/users" })
+    signIn('google',{callbackUrl:`${process.env.NEXTAUTH_URL}/users`})
   }
   return (
     <main className='p-20 flex flex-col justify-between md:flex-row'>
