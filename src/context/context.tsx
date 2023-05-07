@@ -50,10 +50,10 @@ export const UsersContext = createContext<ContextType>({
 export const ContextProvider = ({children}: ContextProviderProps) => {
  const [state, dispatch] = useReducer(reducer, initialState)
 
- const fetchUsers = async(url:string) => {
+ const fetchUsers = async() => {
   dispatch({type:'GET_USERS_BEGIN'})
   try{
-     const resp = await axios.get(url)
+     const resp = await axios.get("https:6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
      const {data} =  resp
      dispatch({type:"GET_USERS_SUCCESS",payload:data})
   }catch(err){
@@ -74,7 +74,7 @@ export const ContextProvider = ({children}: ContextProviderProps) => {
  }
 
  useEffect(() => {
-  fetchUsers(url)
+  fetchUsers()
   fetchSingleUser('https:6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/2')
  },[])
 
