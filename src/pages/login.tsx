@@ -11,11 +11,11 @@ export default function Login() {
 
   const handleClick = async(e:React.MouseEvent<HTMLButtonElement>) =>{
     e.preventDefault()
-    signIn('github',{callbackUrl: `${process.env.NEXTAUTH_URL}/users` })
+    signIn('github')
   }
   const handleGoggle = async(e:React.MouseEvent<HTMLButtonElement>) =>{
     e.preventDefault()
-    signIn('google',{callbackUrl: `${process.env.NEXTAUTH_URL}/users` })
+    signIn('google')
   }
   return (
     <main className='md:p-20 p-12 flex flex-col justify-between md:flex-row text-black'>

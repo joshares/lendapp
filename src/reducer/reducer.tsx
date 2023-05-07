@@ -28,11 +28,11 @@ export function reducer (state:InitialStateType, action:ReducerAction):InitialSt
      single_user:action.payload,
     }
     case  'GET_ERROR':
-      return { ...state, error:true}
+      return { ...state,loading:false,error:true}
     case  'GET_SINGLE_ERROR':
-      return { ...state, single_error:true}
+      return { ...state,loading:false,single_error:true}
    default:
-    return {...state, error:true}
+    return {...state,loading:false, error:true}
  }
 
 }

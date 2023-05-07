@@ -1,5 +1,6 @@
 import { createContext, useContext,useReducer,useEffect } from "react";
 import reducer from "component/reducer/reducer";
+import axios from "axios";
 
 
 
@@ -52,8 +53,8 @@ export const ContextProvider = ({children}: ContextProviderProps) => {
  const fetchUsers = async(url:string) => {
   dispatch({type:'GET_USERS_BEGIN'})
   try{
-     const resp = await fetch(url)
-     const data = await resp.json()
+     const resp = await axios.get(url)
+     const {data} =  resp
      dispatch({type:"GET_USERS_SUCCESS",payload:data})
   }catch(err){
     dispatch({type:'GET_ERROR'})
@@ -63,8 +64,8 @@ export const ContextProvider = ({children}: ContextProviderProps) => {
  const fetchSingleUser = async(url:string) => {
   dispatch({type:'GET_SINGLE_USER_BEGIN'})
    try{
-     const resp = await fetch(url)
-     const data = await resp.json()
+     const resp = await axios.get(url)
+     const {data} = resp
      dispatch({type:"GET_SINGLE_USER_SUCCESS",payload:data})
   }catch(err){
     dispatch({type:'GET_SINGLE_ERROR'})
