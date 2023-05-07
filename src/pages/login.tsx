@@ -11,11 +11,11 @@ export default function Login() {
 
   const handleClick = async(e:React.MouseEvent<HTMLButtonElement>) =>{
     e.preventDefault()
-    signIn('github')
+    signIn('github',{ callbackUrl: "ttps://lendapp-weld.vercel.app" })
   }
   const handleGoggle = async(e:React.MouseEvent<HTMLButtonElement>) =>{
     e.preventDefault()
-    signIn('google')
+    signIn('google',{ callbackUrl: "ttps://lendapp-weld.vercel.app" })
   }
   return (
     <main className='md:p-20 p-12 flex flex-col justify-between md:flex-row text-black'>
